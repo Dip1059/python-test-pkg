@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="dk-test-py",
-    version="0.0.1",
+    name="dk-test-py2",
+    version="0.0.2",
     author="Example Author",
     author_email="author@example.com",
     description="A small example package",

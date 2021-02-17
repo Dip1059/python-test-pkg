@@ -1,1 +1,1 @@
-import hello
+from sdk.hello import *

@@ -1,1 +1,0 @@
-from sdk.hello import *

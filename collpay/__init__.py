@@ -1,4 +1,4 @@
-from collpay.api import *
+from collpay.api import Collpay
 
 # env types
 ENV_PRODUCTION = 1

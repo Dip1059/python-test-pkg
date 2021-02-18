@@ -24,18 +24,37 @@ class Collpay:
             "from": _from,
             "to": _to
         }
-        response = self.__make_request("get-exchange-rate", "get", data)
-        print(type(response))
-        print(response)
+        response = self.__make_request("exchange-rate", "post", data)
+        return response
+
+    def create_transaction(self, transaction_data):
+        response = self.__make_request("transactions", "post", transaction_data)
+        return response
+
+    def get_transaction(self, transaction_id):
+        if transaction_id == "":
+            return {
+                "success": False,
+                "message": "Invalid transaction id"
+            }
+        url = f"transactions/{transaction_id}"
+        response = self.__make_request(url, "get")
         return response
 
     def __make_request(self, url, method, data=None):
-        headers = {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Accept": "application/json",
-            "Accept-Language": "en",
-            "x-auth": self.__public_key
-        }
-        api_url = f"{self.__base_url}/api/{self.__api_version}/{url}"
-        response = r.request(method, api_url, headers=headers, data=data)
-        return response.json()
+        try:
+            headers = {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Accept": "application/json",
+                "Accept-Language": "en",
+                "x-auth": self.__public_key
+            }
+            api_url = f"{self.__base_url}/api/{self.__api_version}/{url}"
+            response = r.request(method, api_url, headers=headers, data=data)
+            return response.json()
+
+        except Exception as msg:
+            return {
+                "success": False,
+                "message": msg
+            }

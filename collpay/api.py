@@ -5,7 +5,7 @@ r = requests.session()
 
 class Collpay:
     __sandbox_base_url = "https://collpay-dev.dev.squaredbyte.com"
-    __production_base_url = "localhost"
+    __production_base_url = "http://localhost:8000"
     __public_key = ""
     __base_url = __production_base_url
     __env_production = 1

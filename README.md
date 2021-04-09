@@ -7,7 +7,6 @@
     print(response)
     
     response = collpay_obj.create_transaction({
-        'type': 'collpay',
         'payment_currency': 'BTC',
         'order_currency': 'USD',
         'order_amount': '10',

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="dk-test-py2",
-    version="0.0.10",
+    version="0.0.13",
     author="Example Author",
     author_email="author@example.com",
     description="A small example package",
